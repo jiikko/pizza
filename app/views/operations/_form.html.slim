@@ -1,0 +1,11 @@
+= form_for @operation do |f|
+  .form-group
+    = f.label :name, :名前
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :script, :スクリプト
+    = f.text_area :script, class: 'form-control', size: "5x20"
+
+  .form-group
+    = f.submit class: 'btn btn-primary', style: 'margin-bottom: 30px'
