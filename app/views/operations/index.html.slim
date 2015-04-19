@@ -10,6 +10,5 @@ table.table
       tr
         td = operation.name
         td = truncate(operation.script)
-        td = safe_join(operation.tags.map{ |x| content_tag(:span, x, class: "label label-primary") })
-        td
-          span class="glyphicon glyphicon-edit"
+        td = safe_join(operation.tags.map{ |x| content_tag(:span, x, class: "label label-primary tag_list") })
+        td = link_to icon(:edit), edit_operation_path(operation)

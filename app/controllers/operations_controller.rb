@@ -9,6 +9,7 @@ class OperationsController < ApplicationController
   end
 
   def edit
+    @operation = Operation.find(params[:id])
   end
 
   def create
@@ -20,6 +21,14 @@ class OperationsController < ApplicationController
     end
   end
 
+  def update
+    @operation = Operation.find(params[:id])
+    if @operation.update(operation_params)
+      redirect_to operations_path, notice: 'updated'
+    else
+      render :edit
+    end
+  end
 
   private
 

@@ -20,9 +20,8 @@ html lang="en"
           a.navbar-brand href="/" Pizza
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "シナリオ一覧", "/scenarios"
-              li= link_to "作業一覧", "/operations"
-              li= link_to "新しい作業を登録する", "/operations/new"
+              li class=menu_active_css(resources: ['scenarios']) = link_to "シナリオ一覧", "/scenarios"
+              li class=menu_active_css(resources: ['operations']) = link_to "作業一覧", "/operations"
 
     .container
       .row
