@@ -4,7 +4,12 @@ table.table
   tr
     th 名前
     th
+    th タグ
+    th
     - @operations.each do |operation|
       tr
         td = operation.name
         td = truncate(operation.script)
+        td = safe_join(operation.tags.map{ |x| content_tag(:span, x, class: "label label-primary") })
+        td
+          span class="glyphicon glyphicon-edit"

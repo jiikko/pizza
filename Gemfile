@@ -12,7 +12,7 @@ gem 'slim-rails'
 gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 3.4.2'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

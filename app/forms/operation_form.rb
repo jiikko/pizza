@@ -4,7 +4,7 @@ class OperationForm
   def initialize(attrs = {})
     super
 
-    @relation = Operation.all
+    @relation = Operation.includes(:tags)
   end
 
   def operations
