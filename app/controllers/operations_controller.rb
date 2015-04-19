@@ -11,8 +11,8 @@ class OperationsController < ApplicationController
   end
 
   def create
-    @operation = Operation.new
-    if @operation.save(operation_params)
+    @operation = Operation.new(operation_params)
+    if @operation.save
       redirect_to operations_path, notice: 'created'
     else
       render :new

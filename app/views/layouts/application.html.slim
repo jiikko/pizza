@@ -10,8 +10,6 @@ html lang="en"
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
 
-
-
   body
     .navbar.navbar-default.navbar-static-top
         .container
@@ -22,9 +20,9 @@ html lang="en"
           a.navbar-brand href="/" Pizza
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li= link_to "作業一覧", "/path1"
-              li= link_to "新しい作業を登録する", "/path2"
-              li= link_to "Link 3", "/path3"
+              li= link_to "シナリオ一覧", "/scenarios"
+              li= link_to "作業一覧", "/operations"
+              li= link_to "新しい作業を登録する", "/operations/new"
 
     .container
       .row

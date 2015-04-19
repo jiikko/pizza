@@ -6,5 +6,5 @@ table.table
     th
     - @operations.each do |operation|
       tr
-        th = operation.name
-        th = truncate(operation.script)
+        td = operation.name
+        td = truncate(operation.script)
