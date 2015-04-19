@@ -1,6 +1,7 @@
 class OperationsController < ApplicationController
   def index
-    @operations = Operation.all
+    @operation_form = OperationForm.new
+    @operations = @operation_form.operations
   end
 
   def new
