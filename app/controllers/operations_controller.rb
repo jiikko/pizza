@@ -1,6 +1,6 @@
 class OperationsController < ApplicationController
   def index
-    @operation_form = OperationForm.new
+    @operation_form = OperationForm.new(operation_form_params)
     @operations = @operation_form.operations
   end
 
@@ -34,5 +34,9 @@ class OperationsController < ApplicationController
 
   def operation_params
     params.require(:operation).permit!
+  end
+
+  def operation_form_params
+    params.fetch(:operation_form, {}).permit!
   end
 end
