@@ -4,7 +4,7 @@
   = form_for(@operation_form, url: operations_path, method: :get) do |f|
     .form-group
       = f.label :tag_list, :タグ
-      = f.text_field :tag_list, class: 'form-control'
+      = f.collection_select(:tag_list, Operation.all_tags, :name, :name, prompt: true)
     .form-group.text-center
       = f.submit :検索, class: 'btn btn-primary'
   .text-right
@@ -25,3 +25,6 @@
           td = truncate(operation.script)
           td = safe_join(operation.tags.map{ |x| content_tag(:span, x, class: "label label-primary tag_list") })
           td = link_to icon(:edit), edit_operation_path(operation)
+
+coffee:
+  $('#operation_form_tag_list').suguiSelectbox()
