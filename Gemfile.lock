@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/jiikko/sugoi-selectbox-rails.git
+  revision: 3c5fb7bec6b325931b94ca3431c76e6bf823fbef
+  specs:
+    sugoi_selectbox-rails (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,7 +121,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-      json (~> 1.4)
     ref (1.0.5)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
@@ -142,7 +147,7 @@ GEM
       ref
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (1.4.1)
+    tilt (2.0.1)
     turbolinks (2.5.3)
       coffee-rails
     twitter-bootstrap-rails (3.2.0)
@@ -176,6 +181,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   slim-rails
   spring
+  sugoi_selectbox-rails!
   therubyracer
   turbolinks
   twitter-bootstrap-rails

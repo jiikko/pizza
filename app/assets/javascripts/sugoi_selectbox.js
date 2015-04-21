@@ -1,0 +1,1 @@
+/Users/air_koji/sites/sugoi-selectbox-rails/vendor/assets/javascripts/sugoi_selectbox.js

@@ -13,6 +13,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'acts-as-taggable-on', '~> 3.4.2'
+gem 'sugoi_selectbox-rails', github: 'jiikko/sugoi-selectbox-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
