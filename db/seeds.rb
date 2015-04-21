@@ -17,6 +17,10 @@ op = Operation.new(name: "花粉症なの? ")
 op.tag_list = "ラッパー, ジャバスクリプトだ, ネコ"
 op.save
 
+op = Operation.new(name: "ジャイアニズム ")
+op.tag_list = "ただひとつだけのやつ, BBA"
+op.save
+
 10.times do
   op = Operation.new(name: "誰 ")
   op.tag_list = "ラッパー, ジャバスクリプトだ, ネコ"

@@ -4,6 +4,10 @@
     = f.text_field :name, class: 'form-control'
 
   .form-group
+    = f.label :target_url, :作業対象URL
+    = f.text_field :target_url, class: 'form-control'
+
+  .form-group
     = f.label :tag_list, :タグ
     = f.text_field :tag_list, class: 'form-control'
 
