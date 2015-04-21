@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(version: 20150419040751) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "operations_scenarios", id: false, force: :cascade do |t|
-    t.integer "scenario_id",  null: false
-    t.integer "operation_id", null: false
+  create_table "scenario_operations", force: :cascade do |t|
+    t.integer "scenario_id",              null: false
+    t.integer "operation_id",             null: false
+    t.integer "position",     default: 0, null: false
   end
 
-  add_index "operations_scenarios", ["operation_id", "scenario_id"], name: "index_operations_scenarios_on_operation_id_and_scenario_id", using: :btree
-  add_index "operations_scenarios", ["scenario_id", "operation_id"], name: "index_operations_scenarios_on_scenario_id_and_operation_id", using: :btree
+  add_index "scenario_operations", ["operation_id", "scenario_id"], name: "index_scenario_operations_on_operation_id_and_scenario_id", using: :btree
+  add_index "scenario_operations", ["scenario_id", "operation_id"], name: "index_scenario_operations_on_scenario_id_and_operation_id", using: :btree
 
   create_table "scenarios", force: :cascade do |t|
     t.string   "name"

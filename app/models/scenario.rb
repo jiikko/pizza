@@ -1,5 +1,6 @@
 class Scenario < ActiveRecord::Base
-  has_and_belongs_to_many :operations
+  has_many :scenario_operations
+  has_many :operations, through: :scenario_operations
 
   acts_as_taggable_on :tags
 end
