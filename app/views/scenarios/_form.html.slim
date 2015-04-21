@@ -1,0 +1,7 @@
+= form_for @scenario do |f|
+  .form-group
+    = f.label :name, :名前
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.submit class: 'btn btn-primary', style: 'margin-bottom: 30px'

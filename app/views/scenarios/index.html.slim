@@ -1,1 +1,15 @@
-これから
+= link_to 'new_scenario', new_scenario_path
+
+- if @scenarios.blank?
+  p.alert.alert-info 検索結果がありません。
+- else
+  table.table
+    tr
+      th 名前
+      th タグ
+      th
+      - @scenarios.each do |scenario|
+        tr
+          td = scenario.name
+          td = safe_join(scenario.tags.map{ |x| content_tag(:span, x, class: "label label-primary tag_list") })
+          td = link_to icon(:edit), edit_scenario_path(scenario)
