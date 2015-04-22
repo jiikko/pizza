@@ -1,7 +1,25 @@
-= form_for @scenario do |f|
+= nested_form_for @scenario do |f|
   .form-group
     = f.label :name, :名前
     = f.text_field :name, class: 'form-control'
+
+
+  .container.well
+    .form-group
+      = label_tag :query, '名前'
+      = text_field_tag :query, :query, class: 'form-control'
+    .form-group
+      = label_tag :tag_list, 'タグ'
+      = text_field_tag :tag_list, :query, class: 'form-control'
+    .col-sm-offset-2.col-sm-10
+    input type="button" value="検索する" class='btn btn-success col-xs-12'
+
+  .form-group
+    = f.fields_for :scenario_operations do |ff|
+      = ff.link_to_remove "Remove this task"
+
+  .form-group.text-right
+    = f.link_to_add "Add a task", :scenario_operations, class: 'btn btn-success'
 
   .form-group
     = f.submit class: 'btn btn-primary', style: 'margin-bottom: 30px'
