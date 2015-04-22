@@ -3,16 +3,15 @@
     = f.label :name, :名前
     = f.text_field :name, class: 'form-control'
 
-
-  .container.well
+  .well
     .form-group
       = label_tag :query, '名前'
       = text_field_tag :query, :query, class: 'form-control'
     .form-group
       = label_tag :tag_list, 'タグ'
       = text_field_tag :tag_list, :query, class: 'form-control'
-    .col-sm-offset-2.col-sm-10
-    input type="button" value="検索する" class='btn btn-success col-xs-12'
+    .form-group.text-center
+      input type="button" value="検索する" class='btn btn-success'
 
   .form-group
     = f.fields_for :scenario_operations do |ff|
