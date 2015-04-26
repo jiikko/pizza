@@ -15,5 +15,5 @@
 //# require twitter/bootstrap
 //= require turbolinks
 //= require nested_form_ui
-//= require jquery_nested_form
+//= require custom_jquery_nested_form
 //= require sugoi_selectbox

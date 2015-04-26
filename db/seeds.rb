@@ -26,3 +26,7 @@ op.save
   op.tag_list = "ラッパー, ジャバスクリプトだ, ネコ"
   op.save
 end
+
+s = Scenario.create(name: "あばっば")
+s.operations << op
+s.operations << op
