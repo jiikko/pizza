@@ -26,7 +26,7 @@
   // defne you
   $(document).on("nested:fieldAdded", "[data-role=search-operation-form]", function(event) {
     var name_field;
-    name_field = event.field.find('.name');
-    return name_field.val($(event.link).data('predefined-name'));
+    name_field = event.field.find(".list-group-item-heading");
+    return name_field.html($(event.link).data('operation-name'));
   });
 }(jQuery));

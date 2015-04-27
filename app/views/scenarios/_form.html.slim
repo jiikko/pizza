@@ -14,8 +14,8 @@
       input type="button" value="検索する" class='btn btn-success' data-role='search-operation'
 
   #scenario_operation_list.list-group
-    = f.fields_for :scenario_operations do |ff|
-      div.list-group-item href="#"
+    = f.fields_for :scenario_operations, wrapper: false do |ff|
+      div.list-group-item.fields
         h4.list-group-item-heading = ff.object.operation.try!(:name)
         .text-right.list-group-item-text = ff.link_to_remove "ゴミ箱"
 
