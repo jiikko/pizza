@@ -25,8 +25,11 @@
 
   // defne you
   $(document).on("nested:fieldAdded", "[data-role=search-operation-form]", function(event) {
-    var name_field;
+    var name_field, operation_id_field;
     name_field = event.field.find(".list-group-item-heading");
-    return name_field.html($(event.link).data('operation-name'));
+    operation_id_field = event.field.find("input[data-operation-id]");
+    name_field.html($(event.link).data('operation-name'));
+    operation_id_field.val($(event.link).data("operation-id"));
+    return
   });
 }(jQuery));

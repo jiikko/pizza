@@ -16,6 +16,7 @@
   #scenario_operation_list.list-group
     = f.fields_for :scenario_operations, wrapper: false do |ff|
       div.list-group-item.fields
+        = ff.hidden_field :operation_id, data: { operation_id: true }
         h4.list-group-item-heading = ff.object.operation.try!(:name)
         .text-right.list-group-item-text = ff.link_to_remove "ゴミ箱"
 
