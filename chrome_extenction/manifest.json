@@ -1,0 +1,14 @@
+{
+  "name": "pizza client",
+  "version": "1",
+  "manifest_version": 2,
+  "description": "excute javascript",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jquery.min.js", "app.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "content_security_policy": "script-src 'self' http://localhost:3000; object-src 'self'"
+}
