@@ -2,7 +2,7 @@
 
 ## インストール方法
 ### Chrome Extention
-[chrome://extensions/](chrome://extensions/) から `pizza/chrome_extenction/` を「パッケージ化されていない拡張機能を読み込む」からインストールする
+[chrome://extensions/](chrome://extensions/) にある「パッケージ化されていない拡張機能を読み込む」から  `ROOT_PATH/pizza/chrome_extenction/` をインストールする
 
 ### サーバ
 ```
