@@ -22,7 +22,7 @@
       th
       - @operations.each do |operation|
         tr
-          td = link_to icon("play"), operation.target_url
+          td = link_to icon("play"), operation.target_url, target: :_blank
           td = operation.name
           td = truncate(operation.script)
           td = safe_join(operation.tags.map{ |x| content_tag(:span, x, class: "label label-primary tag_list") })
