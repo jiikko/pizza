@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'top#index'
 
-  resources :operations
+  resources :operations do
+    get :search, on: :collection
+  end
   resources :scenarios
   resources :tags, only: :index
 

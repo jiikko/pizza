@@ -4,12 +4,24 @@ class OperationsController < ApplicationController
     @operations = @operation_form.operations
   end
 
+  def search
+    operation = Operation.find_by(target_url: params[:url])
+    render json: operation
+  end
+
   def new
     @operation = Operation.new
   end
 
   def edit
     @operation = Operation.find(params[:id])
+  end
+
+  def show
+    @operation = Operation.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @operation }
+    end
   end
 
   def create
