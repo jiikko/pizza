@@ -5,7 +5,7 @@ class OperationsController < ApplicationController
   end
 
   def search
-    operation = Operation.find_by(target_url: params[:url])
+    operation = Operation.find_by(searchable_params)
     render json: operation
   end
 
@@ -50,5 +50,9 @@ class OperationsController < ApplicationController
 
   def operation_form_params
     params.fetch(:operation_form, {}).permit!
+  end
+
+  def searchable_params
+    params.slice(:target_url, :name)
   end
 end
