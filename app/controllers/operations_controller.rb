@@ -6,6 +6,7 @@ class OperationsController < ApplicationController
 
   def search
     operation = Operation.find_by(searchable_params)
+    operation.update_column(:enable, false)
     render json: operation
   end
 
@@ -42,6 +43,10 @@ class OperationsController < ApplicationController
     end
   end
 
+  def enable
+    @operation = Operation.find(params[:id])
+  end
+
   private
 
   def operation_params
@@ -53,6 +58,6 @@ class OperationsController < ApplicationController
   end
 
   def searchable_params
-    params.slice(:target_url, :name)
+    params.slice(:target_url, :name).merge(enable: true)
   end
 end

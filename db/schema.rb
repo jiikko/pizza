@@ -18,10 +18,11 @@ ActiveRecord::Schema.define(version: 20150419040751) do
 
   create_table "operations", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "enable",     default: false, null: false
     t.string   "target_url"
     t.text     "script"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "scenario_operations", force: :cascade do |t|

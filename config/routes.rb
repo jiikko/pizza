@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :operations do
     get :search, on: :collection
+    get :enable, on: :member
   end
   resources :scenarios
   resources :tags, only: :index
