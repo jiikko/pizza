@@ -23,4 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_dependency 'thor'
+  spec.add_dependency 'selenium-webdriver'
+  spec.add_dependency 'chromedriver-helper'
+  spec.add_dependency 'capybara'
 end
