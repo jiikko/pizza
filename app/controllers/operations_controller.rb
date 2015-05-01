@@ -6,8 +6,12 @@ class OperationsController < ApplicationController
 
   def search
     operation = Operation.find_by(searchable_params)
-    operation.update_column(:enable, false)
-    render json: operation
+    if operation
+      operation.update_column(:enable, false)
+      render json: operation
+    else
+      head :not_found
+    end
   end
 
   def new
@@ -45,6 +49,7 @@ class OperationsController < ApplicationController
 
   def enable
     @operation = Operation.find(params[:id])
+    @operation.update_column(:enable, true)
   end
 
   private
