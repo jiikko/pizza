@@ -1,4 +1,6 @@
 = nested_form_for @scenario, html: { 'data-role': 'search-operation-form' } do |f|
+  = f.link_to_add "", :scenario_operations
+
   .form-group
     = f.label :name, :名前
     = f.text_field :name, class: 'form-control'
@@ -23,12 +25,6 @@
   .well
     p 結果
     ul.result
-
-
-  = f.render_link_to_add_template
-
-  .form-group.text-right
-    = f.link_to_add "", :scenario_operations
 
   .form-group
     = f.submit class: 'btn btn-primary', style: 'margin-bottom: 30px'

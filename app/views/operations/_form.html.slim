@@ -1,19 +1,26 @@
-= form_for @operation do |f|
+= nested_form_for @operation do |f|
   .form-group
-    = f.label :name, :名前
+    = f.label :name, '名前'
     = f.text_field :name, class: 'form-control'
 
   .form-group
-    = f.label :target_url, :作業対象URL
+    = f.label :target_url, '作業対象URL'
     = f.text_field :target_url, class: 'form-control'
 
   .form-group
-    = f.label :tag_list, :タグ
+    = f.label :tag_list, 'タグ'
     = f.text_field :tag_list, class: 'form-control'
 
-  .form-group
-    = f.label :script, :スクリプト
-    = f.text_area :script, class: 'form-control', size: "5x20"
+  = f.fields_for :programs, wrapper: false do |ff|
+    .well
+      .form-group
+        = ff.label :programing_language_id, '言語'
+        = ff.collection_select :programing_language_id, ProgramingLanguage.all, :id, :name,  class: 'form-control', size: "5x20"
+      .form-group
+        = ff.label :code, 'コード'
+        = ff.text_area :code, class: 'form-control', size: "5x20"
+
+  = f.link_to_add "増やす", :programs
 
   .form-group
     = f.submit class: 'btn btn-primary', style: 'margin-bottom: 30px'

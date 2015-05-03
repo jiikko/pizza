@@ -30,3 +30,7 @@ end
 s = Scenario.create(name: "あばっば")
 s.operations << op
 s.operations << op
+
+%i(Ruby JavaScript CommonLisp).each do |x|
+  ProgramingLanguage.create!(name: x)
+end

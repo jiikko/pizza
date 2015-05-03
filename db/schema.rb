@@ -34,9 +34,12 @@ ActiveRecord::Schema.define(version: 20150503010536) do
   create_table "programs", force: :cascade do |t|
     t.text     "code"
     t.integer  "programing_language_id", null: false
+    t.integer  "operation_id",           null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "programs", ["operation_id"], name: "index_programs_on_operation_id", using: :btree
 
   create_table "scenario_operations", force: :cascade do |t|
     t.integer "scenario_id",              null: false
@@ -45,7 +48,9 @@ ActiveRecord::Schema.define(version: 20150503010536) do
   end
 
   add_index "scenario_operations", ["operation_id", "scenario_id"], name: "index_scenario_operations_on_operation_id_and_scenario_id", using: :btree
+  add_index "scenario_operations", ["operation_id"], name: "index_scenario_operations_on_operation_id", using: :btree
   add_index "scenario_operations", ["scenario_id", "operation_id"], name: "index_scenario_operations_on_scenario_id_and_operation_id", using: :btree
+  add_index "scenario_operations", ["scenario_id"], name: "index_scenario_operations_on_scenario_id", using: :btree
 
   create_table "scenarios", force: :cascade do |t|
     t.string   "name"
