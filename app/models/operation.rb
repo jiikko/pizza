@@ -11,4 +11,16 @@ class Operation < ActiveRecord::Base
   def tag_list
     super.join(', ')
   end
+
+  def programing_languages
+    programs.map { |x| x.programing_language.name }.join(", ")
+  end
+
+  def find_program_by_programing_language(name: 'Ruby')
+    programs.
+    joins(:programing_language).
+    find_by(
+      programing_languages: { name: name }
+    )
+  end
 end

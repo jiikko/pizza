@@ -11,8 +11,10 @@
     = f.label :tag_list, 'タグ'
     = f.text_field :tag_list, class: 'form-control'
 
-  = f.fields_for :programs, wrapper: false do |ff|
+  = f.fields_for :programs do |ff|
     .well
+      .form-group.text-right
+        = ff.link_to_remove "削除"
       .form-group
         = ff.label :programing_language_id, '言語'
         = ff.collection_select :programing_language_id, ProgramingLanguage.all, :id, :name,  class: 'form-control', size: "5x20"

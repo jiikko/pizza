@@ -19,6 +19,7 @@
       th 名前
       th
       th タグ
+      th 言語
       th
       - @operations.each do |operation|
         tr
@@ -26,6 +27,7 @@
           td = operation.name
           td = truncate(operation.script)
           td = safe_join(operation.tags.map{ |x| content_tag(:span, x, class: "label label-primary tag_list") })
+          td = operation.programing_languages
           td = link_to icon(:edit), edit_operation_path(operation)
 
 coffee:

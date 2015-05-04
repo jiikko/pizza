@@ -5,10 +5,9 @@ class OperationsController < ApplicationController
   end
 
   def search
-    operation = Operation.find_by(searchable_params)
+    operation = Operation.find_by(params.permit(:target_url, :name))
     if operation
-      operation.update_column(:enable, false)
-      render json: operation
+      render json: { operation: operation }
     else
       head :not_found
     end
@@ -23,9 +22,14 @@ class OperationsController < ApplicationController
   end
 
   def show
-    @operation = Operation.find(params[:id])
+
     respond_to do |format|
-      format.json { render json: @operation }
+      format.json {
+        render json: {
+          operation: @operation,
+          program: @operation.find_program_by_programing_language(name: params[:programing_language_name])
+        }
+      }
     end
   end
 
@@ -62,7 +66,6 @@ class OperationsController < ApplicationController
     params.fetch(:operation_form, {}).permit!
   end
 
-  def searchable_params
-    params.slice(:target_url, :name).merge(enable: true)
+  def find_operation
   end
 end

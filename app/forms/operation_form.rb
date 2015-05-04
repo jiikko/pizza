@@ -6,7 +6,7 @@ class OperationForm
   def initialize(attrs = {})
     super
 
-    @relation = Operation.includes(:tags)
+    @relation = Operation.includes(:tags, { programs: :programing_language })
   end
 
   def operations
