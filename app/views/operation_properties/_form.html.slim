@@ -1,9 +1,9 @@
-= form_for @operation_authentication do |f|
+= form_for @operation_property do |f|
   .well
     .form-group.text-right
     .form-group
       = f.label :scope
-      = f.select :scope, options_for_select(OperationAuthentication.scopes.map { |s| [s[0], s[0]] }, selected: f.object.scope), { include_blank: true }, class: "span3"
+      = f.select :scope, options_for_select(OperationProperty.scopes.map { |s| [s[0], s[0]] }, selected: f.object.scope), { include_blank: true }, class: "span3"
       p.alert.alert-info Scope を secretにすると自分しか表示・編集が限定されます
     .form-group
       = f.label :service_name

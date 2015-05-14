@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :operations, only: :index
   end
 
-  resources :operation_authentications
+  resources :operation_properties
 
   namespace :my do
     resource :users, only: %i(edit update)

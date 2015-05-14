@@ -1,6 +1,6 @@
 class CreateOperationAuthentications < ActiveRecord::Migration
   def change
-    create_table :operation_authentications do |t|
+    create_table :operation_properties do |t|
       t.references :user, null: false
       t.integer :scope
       t.string :service_name
@@ -10,6 +10,6 @@ class CreateOperationAuthentications < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :operation_authentications, [:service_name, :key]
+    add_index :operation_properties, [:service_name, :key]
   end
 end

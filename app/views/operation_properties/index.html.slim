@@ -1,0 +1,22 @@
+p = link_to '新規作成', '/operation_properties/new'
+
+table.table
+  tr
+    th service_name
+    th scope
+    th key
+    th value
+    th 作成者
+  - @operation_properties.each do |operation_property|
+    tr
+      td
+        = operation_property.service_name
+        p = link_to 'edit', edit_operation_property_path(operation_property)
+      td = operation_property.scope
+      td = operation_property.key
+      td
+        - if operation_property.masked
+          | (masked)
+        - else
+          = operation_property.value
+      td = operation_property.user.name
