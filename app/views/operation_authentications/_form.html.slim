@@ -2,9 +2,9 @@
   .well
     .form-group.text-right
     .form-group
-      p.alert.alert-info Scope を secretにすると自分しか表示・編集が限定されます
       = f.label :scope
       = f.select :scope, options_for_select(OperationAuthentication.scopes.map { |s| [s[0], s[0]] }, selected: f.object.scope), { include_blank: true }, class: "span3"
+      p.alert.alert-info Scope を secretにすると自分しか表示・編集が限定されます
     .form-group
       = f.label :service_name
       = f.text_field :service_name, class: 'form-control'
@@ -15,6 +15,10 @@
       = f.label :value
       = f.text_field :value, class: 'form-control'
     .form-group
-      p.alert.alert-info TODO masked
+      .checkbox
+        = f.label :masked do
+          = f.check_box :masked
+          | 値を見えなくする
+        p.alert.alert-info パスワード等の場合にチェックを入れてください。なお保存時に値の暗号化はされません。
     .form-group
       = f.submit class: 'btn btn-primary'

@@ -6,6 +6,7 @@ class CreateOperationAuthentications < ActiveRecord::Migration
       t.string :service_name
       t.string :key
       t.string :value
+      t.boolean :masked, null: false, default: false
 
       t.timestamps null: false
     end

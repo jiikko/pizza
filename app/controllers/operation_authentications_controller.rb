@@ -1,7 +1,7 @@
 class OperationAuthenticationsController < ApplicationController
   def index
-    # TODO scope
-    @operation_authentications = OperationAuthentication.all
+    @operation_authentications = OperationAuthentication.where(user: current_user).scope_private
+    @operation_authentications = @operation_authentications + OperationAuthentication.scope_public
   end
 
   def new
@@ -10,6 +10,7 @@ class OperationAuthenticationsController < ApplicationController
 
   def edit
     @operation_authentication = OperationAuthentication.find(params[:id])
+    render_404 unless owner?
   end
 
   def create
@@ -24,6 +25,7 @@ class OperationAuthenticationsController < ApplicationController
 
   def update
     @operation_authentication = OperationAuthentication.find(params[:id])
+    render_404 unless owner?
     @operation_authentication.user = current_user
     if @operation_authentication.update(authentication_params)
       redirect_to operation_authentications_url, notice: '認証情報を更新しました'
@@ -42,5 +44,9 @@ class OperationAuthenticationsController < ApplicationController
         :key,
         :value
     ])
+  end
+
+  def owner?
+    @operation_authentication.user == current_user
   end
 end

@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(version: 20150514085822) do
   add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
 
   create_table "operation_authentications", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4,   null: false
+    t.integer  "user_id",      limit: 4,                   null: false
     t.integer  "scope",        limit: 4
     t.string   "service_name", limit: 255
     t.string   "key",          limit: 255
     t.string   "value",        limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.boolean  "masked",       limit: 1,   default: false, null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "operation_authentications", ["service_name", "key"], name: "index_operation_authentications_on_service_name_and_key", using: :btree
