@@ -28,3 +28,4 @@ public/assets/
 vendor/bundler/
 screenlog.1
 config/secrets.yml
+client/pizza_client/pizza_client-*.gem

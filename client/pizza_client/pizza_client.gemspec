@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = PizzaClient::VERSION
   spec.authors       = ["jiikko"]
   spec.email         = ["n905i.1214@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = %q{pizza client.}
+  spec.description   = %q{automation tool client.}
+  spec.homepage      = "https://github.com/jiikko/pizza"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
