@@ -20,8 +20,9 @@ html lang="en"
           a.navbar-brand href="/" Pizza
           .navbar-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
-              li class=menu_active_css(resources: ['scenarios']) = link_to "シナリオ一覧", "/scenarios"
-              li class=menu_active_css(resources: ['operations']) = link_to "作業一覧", "/operations"
+              li class=menu_active_css(resources: ['scenarios']) = link_to "シナリオ", "/scenarios"
+              li class=menu_active_css(resources: ['operations']) = link_to "作業", "/operations"
+              li class=menu_active_css(resources: ['operation_authentications']) = link_to "認証情報", "/operation_authentications"
               li class=menu_active_css(resources: ['my/users']) = link_to "設定", "/my/users/edit"
 
     .container

@@ -12,9 +12,10 @@ Rails.application.routes.draw do
     resources :operations, only: :index
   end
 
+  resources :operation_authentications
+
   namespace :my do
-    resource :users, only: %i(show edit update)
-    resource :operation_authentications, only: %i(edit update)
+    resource :users, only: %i(edit update)
   end
 
   post "oauth/callback" => "oauths#callback"

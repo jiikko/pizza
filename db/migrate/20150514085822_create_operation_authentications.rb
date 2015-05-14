@@ -1,8 +1,8 @@
 class CreateOperationAuthentications < ActiveRecord::Migration
   def change
     create_table :operation_authentications do |t|
-      t.references :uesr, null: false
-      t.integer :auth_type
+      t.references :user, null: false
+      t.integer :scope
       t.string :service_name
       t.string :key
       t.string :value

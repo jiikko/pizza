@@ -1,0 +1,20 @@
+= form_for @operation_authentication do |f|
+  .well
+    .form-group.text-right
+    .form-group
+      p.alert.alert-info Scope を secretにすると自分しか表示・編集が限定されます
+      = f.label :scope
+      = f.select :scope, options_for_select(OperationAuthentication.scopes.map { |s| [s[0], s[0]] }, selected: f.object.scope), { include_blank: true }, class: "span3"
+    .form-group
+      = f.label :service_name
+      = f.text_field :service_name, class: 'form-control'
+    .form-group
+      = f.label :key
+      = f.text_field :key, class: 'form-control'
+    .form-group
+      = f.label :value
+      = f.text_field :value, class: 'form-control'
+    .form-group
+      p.alert.alert-info TODO masked
+    .form-group
+      = f.submit class: 'btn btn-primary'
