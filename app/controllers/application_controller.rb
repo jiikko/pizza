@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
+  before_action :require_login
+
   def render_404
     respond_to do |format|
       format.json { head :not_found }
