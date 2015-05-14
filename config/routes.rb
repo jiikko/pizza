@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     resources :operations, only: :index
   end
 
+  namespace :my do
+    resource :users, only: %i(show edit update)
+    resource :operation_authentications, only: %i(edit update)
+  end
+
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
