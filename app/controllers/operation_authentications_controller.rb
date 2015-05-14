@@ -42,7 +42,8 @@ class OperationAuthenticationsController < ApplicationController
         :scope,
         :service_name,
         :key,
-        :value
+        :value,
+        :masked
     ])
   end
 

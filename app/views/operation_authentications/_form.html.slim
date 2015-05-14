@@ -13,12 +13,18 @@
       = f.text_field :key, class: 'form-control'
     .form-group
       = f.label :value
-      = f.text_field :value, class: 'form-control'
+      - if f.object.masked?
+        = f.password_field :value, class: 'form-control'
+      - else
+        = f.text_field :value, class: 'form-control'
     .form-group
       .checkbox
         = f.label :masked do
           = f.check_box :masked
           | 値を見えなくする
-        p.alert.alert-info パスワード等の場合にチェックを入れてください。なお保存時に値の暗号化はされません。
+        p.alert.alert-info
+          | パスワード等の場合にチェックを入れてください。
+          br
+          | edit時にpassword_fieldを使うようになります。なお保存時に値の暗号化はされません。
     .form-group
       = f.submit class: 'btn btn-primary'

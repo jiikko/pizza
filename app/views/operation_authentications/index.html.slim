@@ -5,6 +5,7 @@ table.table
     th service_name
     th scope
     th key
+    th value
     th 作成者
   - @operation_authentications.each do |operation_authentication|
     tr
@@ -13,4 +14,9 @@ table.table
         p = link_to 'edit', edit_operation_authentication_path(operation_authentication)
       td = operation_authentication.scope
       td = operation_authentication.key
+      td
+        - if operation_authentication.masked
+          | (masked)
+        - else
+          = operation_authentication.value
       td = operation_authentication.user.name
