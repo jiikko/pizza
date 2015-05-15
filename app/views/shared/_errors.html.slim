@@ -1,0 +1,6 @@
+- if object.errors.any?
+  h1 入力内容に誤りがあります
+  div.alert.alert-danger
+    ul
+      - object.errors.full_messages.each do |msg|
+        = content_tag :li, msg, :id => "error_#{msg}" if msg.is_a?(String)

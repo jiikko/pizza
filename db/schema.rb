@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20150514085822) do
     t.datetime "updated_at",                               null: false
   end
 
-  add_index "operation_properties", ["service_name", "key"], name: "index_operation_properties_on_service_name_and_key", using: :btree
+  add_index "operation_properties", ["service_name", "key"], name: "index_operation_properties_on_service_name_and_key", unique: true, using: :btree
 
   create_table "operations", force: :cascade do |t|
     t.string   "name",       limit: 255

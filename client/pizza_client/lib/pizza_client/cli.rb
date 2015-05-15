@@ -1,28 +1,17 @@
-require "pizza_client"
 require 'thor'
 require 'json'
 require 'open-uri'
-require 'capybara'
 require 'capybara/dsl'
 require "selenium-webdriver"
+require "pizza_client"
+require "pizza_client/capybara"
 
 module PizzaClient
   class CLI < Thor
-    include Capybara::DSL
-
     desc "exec script", "to http"
     def operation(name)
-      Capybara.run_server = false
-      Capybara.configure do |config|
-        config.run_server = false
-        config.default_driver = :selenium
-        config.app_host = 'http://google.com'
-      end
-      Capybara.register_driver :selenium do |app|
-        Capybara::Selenium::Driver.new(app, browser: :chrome)
-      end
-
-      visit('/')
+      capyvara = PizzaClient::Browser.new
+      capyvara.visit('http://google.com')
 
       # open("#{HOST}/operations/search?name=#{name}") do |response|
       #   x = JSON.parse(response.read)["script"] # eval
@@ -32,6 +21,13 @@ module PizzaClient
 
     desc "get script list", "to http"
     def fetch
+    end
+
+    desc "exec script", "to http"
+    def service
+      puts "hei"
+      capyvara = PizzaClient::Browser.new
+      capyvara.visit('http://google.com')
     end
   end
 end

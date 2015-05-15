@@ -3,4 +3,6 @@ class OperationProperty < ActiveRecord::Base
   enum scope: %i(scope_public scope_private)
 
   belongs_to :user
+
+  validates_uniqueness_of :scope
 end

@@ -10,6 +10,6 @@ class CreateOperationAuthentications < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :operation_properties, [:service_name, :key]
+    add_index :operation_properties, [:service_name, :key], unique: true
   end
 end
