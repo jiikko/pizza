@@ -4,11 +4,14 @@
     .form-group.text-right
     .form-group
       = f.label :scope
-      = f.select :scope, options_for_select(OperationProperty.scopes.map { |s| [s[0], s[0]] }, selected: f.object.scope), { include_blank: true }, class: "span3"
+      = f.select :scope, options_for_select(OperationProperty.scopes.map { |s| [s[0], s[0]] }, selected: f.object.scope), class: "span3"
       p.alert.alert-info Scope を secretにすると自分しか表示・編集が限定されます
     .form-group
       = f.label :service_name
       = f.text_field :service_name, class: 'form-control'
+    .form-group
+      = f.label :namespace
+      = f.text_field :namespace, class: 'form-control'
     .form-group
       = f.label :key
       = f.text_field :key, class: 'form-control'

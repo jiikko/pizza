@@ -41,6 +41,7 @@ class OperationPropertiesController < ApplicationController
       permit([
         :scope,
         :service_name,
+        :namespace,
         :key,
         :value,
         :masked

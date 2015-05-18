@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150514085822) do
     t.integer  "user_id",      limit: 4,                   null: false
     t.integer  "scope",        limit: 4
     t.string   "service_name", limit: 255
+    t.string   "namespace",    limit: 255
     t.string   "key",          limit: 255
     t.string   "value",        limit: 255
     t.boolean  "masked",       limit: 1,   default: false, null: false
@@ -34,7 +35,7 @@ ActiveRecord::Schema.define(version: 20150514085822) do
     t.datetime "updated_at",                               null: false
   end
 
-  add_index "operation_properties", ["service_name", "key"], name: "index_operation_properties_on_service_name_and_key", unique: true, using: :btree
+  add_index "operation_properties", ["service_name", "namespace", "key"], name: "index_operation_properties_on_service_name_and_namespace_and_key", unique: true, using: :btree
 
   create_table "operations", force: :cascade do |t|
     t.string   "name",       limit: 255

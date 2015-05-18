@@ -16,6 +16,9 @@ gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'sugoi_selectbox-rails'
 gem 'nested_form'
 gem 'sorcery'
+gem 'selenium-webdriver', "~> 2.45", require: false
+gem 'capybara', "~> 2.4", require: false
+gem 'chromedriver-helper', require: false
 
 # Use Unicorn as the app server
 # gem 'unicorn'
