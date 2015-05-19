@@ -22,7 +22,6 @@ class OperationsController < ApplicationController
   end
 
   def show
-
     respond_to do |format|
       format.json {
         render json: {
@@ -67,5 +66,11 @@ class OperationsController < ApplicationController
   end
 
   def find_operation
+    query = { id: params[:id] }
+    if params[:programing_language_name] == 'JavaScript'
+      query.merge!(enable: true)
+    end
+    @operation = Operation.find_by!(query)
+    @operation.update_column(:enable, false)
   end
 end
