@@ -4,6 +4,7 @@ class Operation < ActiveRecord::Base
   has_many :programs
   has_many :scenario_operations
   has_many :scenarios, through: :scenario_operations
+  has_many :automations
 
   accepts_nested_attributes_for :programs, allow_destroy: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514085822) do
+ActiveRecord::Schema.define(version: 20150519072549) do
 
   create_table "authentications", force: :cascade do |t|
     t.integer  "user_id",    limit: 4,   null: false
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20150514085822) do
   end
 
   add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
+
+  create_table "automations", force: :cascade do |t|
+    t.integer  "operation_id", limit: 4, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "operation_properties", force: :cascade do |t|
     t.integer  "user_id",      limit: 4,                   null: false

@@ -23,7 +23,7 @@
       th
       - @operations.each do |operation|
         tr
-          td = link_to icon("play"), enable_operation_path(operation), remote: true
+          td = link_to icon("play"), operation_automations_path(operation), method: :post
           td = operation.name
           td = truncate(operation.script)
           td = safe_join(operation.tags.map{ |x| content_tag(:span, x, class: "label label-primary tag_list") })
