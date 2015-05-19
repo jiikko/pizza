@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   namespace :ajax do
     resources :operations, only: :index
+    resources :services do
+      post :exec, on: :collection
+    end
   end
 
   resources :operation_properties

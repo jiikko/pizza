@@ -24,10 +24,12 @@ module PizzaClient
     end
 
     desc "exec script", "to http"
-    def service
+    def service(service_name, method, option)
       puts "hei"
-      capyvara = PizzaClient::Browser.new
-      capyvara.visit('http://google.com')
+      params = "service_name=#{service_name}&method=#{method}&option=#{option}"
+      open("#{HOST}/ajax/services/exec?#{params}") do |response|
+        puts JSON.parse(response.read)
+      end
     end
   end
 end

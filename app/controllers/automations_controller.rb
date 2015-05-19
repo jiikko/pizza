@@ -1,5 +1,7 @@
 class AutomationsController < ApplicationController
+  # ビルド結果を見る
   def show
+    @automation = Automation.find(params[:automation_id])
   end
 
   def create
